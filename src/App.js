@@ -111,9 +111,16 @@ class App extends Component {
             body: JSON.stringify({id: this.state.user.id})
           })
           .then(response=>response.json())
-          .then(count=>{
-            this.setState(Object.assign(this.state.user,{entries:count}))
-            })
+          // .then(count=>{
+          //   this.setState(Object.assign(this.state.user,{entries:count}))
+          //   })
+          
+          .then((count) => {
+            const newObj = Object.assign(user, { entries: count });
+            setUser(Object.assign({}, user, { entries: newObj.entries }));
+            console.log(user);
+          });
+
             .catch(console.log)
         }
         this.displayFaceBox(this.faceLocation(response));
