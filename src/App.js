@@ -119,7 +119,7 @@ class App extends Component {
             const newObj = Object.assign(user, { entries: count });
             setUser(Object.assign({}, user, { entries: newObj.entries }));
             console.log(user);
-          });
+          })
 
             .catch(console.log)
         }
