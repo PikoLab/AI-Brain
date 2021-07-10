@@ -19,7 +19,7 @@ class Signin extends React.Component{
 
 
     onSubmitSignIn = () => {
-        fetch('https://mysterious-garden-10190.herokuapp.com/signin',{
+        fetch('http://localhost:3000/signin',{
             method:'post',
             headers:{'Content-Type':'application/json'},
             body: JSON.stringify({
@@ -28,10 +28,6 @@ class Signin extends React.Component{
             })
         })
             .then(response => response.json())
-            // .then(data => {
-            //     if (data==='success'){
-            //         this.props.onRouteChange('home');
-            //     }
             .then(user => {
                 if (user.id) {
                   this.props.loadUser(user)

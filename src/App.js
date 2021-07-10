@@ -46,19 +46,12 @@ const initialState ={
   
 
 }
-
-  
+ 
 class App extends Component {
   constructor(){
     super();
     this.state=initialState;
   }
-
-  // componentDidMount(){
-  //   fetch ('http://localhost:3000/')
-  //   .then(response => response.json())
-  //   .then(console.log)
-  // }
 
   loadUser=(data)=>{
     this.setState({user:{
@@ -95,7 +88,7 @@ class App extends Component {
 
   onButtonSubmit=()=>{
     this.setState({imgUrl:this.state.input});
-      fetch('https://mysterious-garden-10190.herokuapp.com/imageurl',{
+      fetch('http://localhost:3000/imageurl',{
             method:'post',
             headers:{'Content-Type':'application/json'},
             body: JSON.stringify({
@@ -105,7 +98,7 @@ class App extends Component {
       .then(response=>response.json())
       .then(response=>{
         if (response){
-          fetch('https://mysterious-garden-10190.herokuapp.com/image',{
+          fetch('http://localhost:3000/image',{
             method:'put',
             headers:{'Content-Type':'application/json'},
             body: JSON.stringify({id: this.state.user.id})
